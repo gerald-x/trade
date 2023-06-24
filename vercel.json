@@ -18,12 +18,12 @@
     ],
     "routes": [
         { 
-            "src": "/userDashboard/static/userDashboard/(.*)", 
-            "dest": "/userDashboard/static/$1" 
+            "src": "/userDashboard/static/user/(.*)", 
+            "dest": "/static/userDashboard/static/$1" 
         },
         { 
-            "src": "/adminDashboard/static/adminDashboard/(.*)", 
-            "dest": "/adminDashboard/static/$1" 
+            "src": "/adminDashboard/static/admin/(.*)", 
+            "dest": "/static/adminDashboard/static/$1" 
         },
         {
             "src": "/(.*)",
