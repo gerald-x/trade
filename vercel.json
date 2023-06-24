@@ -17,17 +17,21 @@
         }
     ],
     "routes": [
-        { 
-            "src": "/userDashboard/static/user/(.*)", 
-            "dest": "/static/userDashboard/static/$1" 
-        },
-        { 
-            "src": "/adminDashboard/static/admin/(.*)", 
-            "dest": "/static/adminDashboard/static/$1" 
+        {
+          "src": "/userDashboard/static/(.*)",
+          "dest": "trade/userDashboard/static/$1"
         },
         {
-            "src": "/(.*)",
-            "dest": "trade/wsgi.py"
+          "src": "/adminDashboard/static/(.*)",
+          "dest": "trade/adminDashboard/static/$1"
+        },
+        {
+          "src": "/static/(.*)",
+          "dest": "static/$1"
+        },
+        {
+          "src": "/(.*)",
+          "dest": "trade/wsgi.py"
         }
-    ]
+      ]
 }
