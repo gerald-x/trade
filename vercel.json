@@ -10,24 +10,17 @@
         },
         {
         "src": "build_files.sh",
-        "use": "@vercel/static-build",
-        "config": {
-                "distDir": "staticfiles_dir"
-            }
+        "use": "@vercel/static-build"
         }
     ],
     "routes": [
         {
           "src": "/userDashboard/static/(.*)",
-          "dest": "trade/userDashboard/static/$1"
+          "dest": "/static/userDashboard/static/$1"
         },
         {
           "src": "/adminDashboard/static/(.*)",
-          "dest": "trade/adminDashboard/static/$1"
-        },
-        {
-          "src": "/static/(.*)",
-          "dest": "static/$1"
+          "dest": "/static/adminDashboard/static/$1"
         },
         {
           "src": "/(.*)",
