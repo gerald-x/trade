@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+import atexit
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +28,7 @@ SECRET_KEY = 'django-insecure-7vyt^iw8r(+)w4n$(kmz!bvb@_8#ly#5+8ijra7#od(cayhpn2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".vercel.app"]
+ALLOWED_HOSTS = ["*",".vercel.app"]
 
 
 # Application definition
@@ -78,8 +81,12 @@ WSGI_APPLICATION = 'trade.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "railway",
+        'USER': 'postgres',
+        'PASSWORD': 'pETIrwvSmh4X1mb7XyM8',
+        'HOST': 'containers-us-west-54.railway.app',
+        'PORT': '7956',
     }
 }
 
