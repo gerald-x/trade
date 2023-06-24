@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     enabled: true,
                     mode: "x",
                     speed: 50,
-                }
+                },
             }
         },
         scales: {
@@ -69,12 +69,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     // Create the chart
     const myChart = new chartJs.Chart(ctx, config);
-    console.log(chartJs.Chart.plugins)
 
     fetch(`${window.location.protocol}//${window.location.host}/dashboard/stock/records/`)
     .then(res=>res.json())
     .then(data => {
-        console.log(data)
         for (let i = 0; i < data.length; i++) {
             console.log(data[i].current_value, data)
             // Push the new label and data to the respective arrays
@@ -114,7 +112,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 hour12: false
             });
 
-            console.log(current_label[current_label.length-1], current_data[current_data.length-1], formattedDate, retrieved_value)
             if (formattedDate !== current_label[current_label.length-1] && current_data[current_data.length-1] !== retrieved_value) {
                 // Push the new label and data to the respective arrays
                 myChart.data.labels.push(new Date(retrieved_time).toLocaleString('en-US', {

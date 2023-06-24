@@ -8,7 +8,6 @@ from django.core import serializers
 from trade.helpers import strip_space
 from trade.tasks import generate_profit_loss
 
-generate_profit_loss()
 
 # Create your views here.
 @admin_login_required

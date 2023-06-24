@@ -3,6 +3,8 @@ import random
 from background_task import background
 from datetime import timedelta
 from django.utils import timezone
+import atexit
+from background_task.models import Task
 
 @background(schedule=timedelta(seconds=75))
 def generate_profit_loss():
@@ -31,3 +33,11 @@ def generate_profit_loss():
             )
             record.save()
         print(f"updated user value {timezone.now()}")
+
+import signal
+
+def stop_background_task(signal, frame):
+    Task.objects.filter(task_name='trade.task.generate_profit_loss').delete()
+
+
+signal.signal(signal.SIGTERM, stop_background_task)

@@ -13,8 +13,6 @@ from django.http import JsonResponse
 from trade.helpers import strip_space
 
 
-generate_profit_loss()
-
 @user_login_required
 def retrieve_stock_update(request):
     if request.method == "GET":
