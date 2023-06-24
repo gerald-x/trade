@@ -1,5 +1,5 @@
 echo "Installing Dependencies..."
-pip3 -m pip install -r requirements.txt
+pip install -r requirements.txt
 
 echo "Making migrations..."
 python3 manage.py makemigrations userDashboard
