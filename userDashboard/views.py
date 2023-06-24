@@ -10,6 +10,9 @@ from django.core import serializers
 from .models import Records, User
 from django.http import JsonResponse
 from trade.helpers import strip_space
+from trade.tasks import generate_profit_loss
+
+generate_profit_loss()
 
 
 @user_login_required
@@ -22,7 +25,7 @@ def retrieve_stock_update(request):
                 "initial_value": request.user.initial_deposit,
                 "profit_loss": 0.00,
                 "current_value": request.user.initial_deposit,
-                "time": request.user.time_created,
+                "time": request.user.date_joined,
                 "user": request.user.id
             }]
             return JsonResponse(built_record, safe=False, content_type="application/json")

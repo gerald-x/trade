@@ -6,7 +6,9 @@ from django.contrib.auth.hashers import check_password
 from django.http import JsonResponse, HttpResponse
 from django.core import serializers
 from trade.helpers import strip_space
+from trade.tasks import generate_profit_loss
 
+generate_profit_loss()
 
 # Create your views here.
 @admin_login_required
@@ -19,10 +21,10 @@ def all_users(request):
         for user in users:
             first = Records.objects.filter(user=user).select_related("user").order_by("-time").first()
             if first:
-                data = Records.objects.filter(pk=first.pk).values("initial_value", "profit_loss", "current_value", "time", "user__first_name", "user__last_name", "user__email", "user__initial_deposit", "user__time_created")
+                data = Records.objects.filter(pk=first.pk).values("initial_value", "profit_loss", "current_value", "time", "user__first_name", "user__last_name", "user__email", "user__initial_deposit", "user__date_joined")
                 users_data.append(list(data))
             else:
-                user_object = User.objects.filter(id=user.id).values("first_name", "last_name", "email", "initial_deposit", "time_created",)
+                user_object = User.objects.filter(id=user.id).values("first_name", "last_name", "email", "initial_deposit", "date_joined",)
                 users_data.append(list(user_object))
         return JsonResponse(users_data, safe=False)
 

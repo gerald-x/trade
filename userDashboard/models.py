@@ -9,7 +9,6 @@ class User(AbstractUser):
     username = models.CharField(max_length=30, unique=True, blank=True, null=True)
     initial_deposit = models.FloatField(default=100)
     is_admin = models.BooleanField(default=False)
-    time_created = models.DateTimeField(auto_now_add=True)
     REQUIRED_FIELDS = ["password", "email"]
 
 class Records(models.Model):

@@ -11,9 +11,8 @@
         padding-right: 5vw !important;
     }
 
-    .date {
-        width: max-content !important;
-        whitespace: no-wrap !important;
+    td.date {
+        white-space: nowrap !important;
     }
 {% endblock styles %}
 
@@ -50,6 +49,7 @@
                     <th>first name</th>
                     <th>last name</th>
                     <th>email</th>
+                    <th>date joined</th>
                     <th>initial amount</th>
                     <th>last trade update</th>
                     <th>current amount</th>                
@@ -83,6 +83,14 @@
                             <td>${mainObject?.user__first_name}</td>
                             <td>${mainObject?.user__last_name}</td>
                             <td>${mainObject?.user__email}</td>
+                            <td>${Intl.DateTimeFormat('en-US', {
+                                month: 'long',
+                                day: 'numeric',
+                                year: 'numeric',
+                                hour: 'numeric',
+                                minute: 'numeric',
+                                hour12: true
+                            }).format(new Date(mainObject?.user__date_joined))}</td>
                             <td>${mainObject?.user__initial_deposit}</td>
                             <td class="date">${new Intl.DateTimeFormat('en-US', {
                                     month: 'long',
@@ -101,6 +109,14 @@
                             <td>${mainObject?.first_name}</td>
                             <td>${mainObject?.last_name}</td>
                             <td>${mainObject?.email}</td>
+                            <td>${new Intl.DateTimeFormat('en-US', {
+                                month: 'long',
+                                day: 'numeric',
+                                year: 'numeric',
+                                hour: 'numeric',
+                                minute: 'numeric',
+                                hour12: true
+                            }).format(new Date(mainObject?.date_joined))}</td>
                             <td>${mainObject?.initial_deposit}</td>
                             <td class="date">Not Started</td>
                             <td>${mainObject?.initial_deposit}</td>                
@@ -114,7 +130,7 @@
             
             updateTableData();
         
-            setInterval(updateTableData, 10000);
+            setInterval(updateTableData, 60000);
         })
     </script>
 {% endblock content %}
