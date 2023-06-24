@@ -10,9 +10,9 @@ from django.core import serializers
 from .models import Records, User
 from django.http import JsonResponse
 from trade.helpers import strip_space
-from trade.tasks import generate_profit_loss
+#from trade.tasks import generate_profit_loss
 
-generate_profit_loss()
+#generate_profit_loss()
 
 
 @user_login_required

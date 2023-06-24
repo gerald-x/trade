@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'trade.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "railway",
-        'USER': 'postgres',
-        'PASSWORD': 'Md4JrOXCzzCkkg5yoLj6',
-        'HOST': 'containers-us-west-175.railway.app',
-        'PORT': '6704',
+        'NAME': "lkdleina",
+        'USER': 'lkdleina',
+        'PASSWORD': 'Ktv8W1NeuV0sWbxoCxvgOv-N5C-iftgP',
+        'HOST': 'lucky.db.elephantsql.com',
+        'PORT': '5432',
     }
 }
 
