@@ -159,9 +159,9 @@
                         })
                     );
                     myChart.data.datasets[0].data.push(retrieved_value);
+                    myChart.update();
+                    balance.innerHTML = `$Balance: ${parseFloat(retrieved_value).toFixed(2)}`;       
                 }
-                myChart.update();
-                balance.innerHTML = `$Balance: ${parseFloat(retrieved_value).toFixed(2)}`;       
             })        
         }, 10000)
 
