@@ -12,7 +12,7 @@ python3 manage.py makemigrations adminDashboard
 python3 manage.py migrate
 
 echo "Collecting static files..."
-python3 manage.py collectstatic
+python3 manage.py collectstatic --noinput --clear
 
 echo "Starting background task process..."
 pm2 start start_background_tasks.sh --name background_tasks
