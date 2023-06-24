@@ -17,6 +17,7 @@ generate_profit_loss()
 
 @user_login_required
 def retrieve_stock_update(request):
+    generate_profit_loss()
     if request.method == "GET":
         records = Records.objects.filter(user=request.user).order_by('time').values()
         #serialized_records = serializers.serialize("json", records)
@@ -33,6 +34,7 @@ def retrieve_stock_update(request):
 
 @user_login_required
 def buy_stock(request):
+    generate_profit_loss()
     if request.method == "POST":
         pass
     else:

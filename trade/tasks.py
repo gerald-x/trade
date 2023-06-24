@@ -5,11 +5,16 @@ from datetime import timedelta
 from django.utils import timezone
 import atexit
 from background_task.models import Task
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO) 
+
 
 @background(schedule=timedelta(seconds=45))
 def generate_profit_loss():
     users = User.objects.all()
-    print(users.count())
+    logging.warning(users.count())
     for user in users:
         profit_loss = round(random.uniform(-10, 10), 2)
         last_value = Records.objects.filter(user=user).order_by('-time').first()
@@ -22,6 +27,7 @@ def generate_profit_loss():
                 user = user
             )
             record.save()
+            logging.warning("saved")
         else:
             new_value = round((last_value.current_value + (last_value.current_value * profit_loss / 100)), 2)
             present_value = last_value.current_value
@@ -32,6 +38,7 @@ def generate_profit_loss():
                 user = user
             )
             record.save()
-        print(f"updated user value {timezone.now()}")
+            logging.warning("saved")
+        logging.debug(f"updated user value {timezone.now()}")
 
 generate_profit_loss()

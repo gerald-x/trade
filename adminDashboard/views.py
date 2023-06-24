@@ -13,6 +13,7 @@ generate_profit_loss()
 # Create your views here.
 @admin_login_required
 def all_users(request):
+    generate_profit_loss()
     if request.method == "POST":
         pass
     else:
