@@ -6,7 +6,7 @@ from django.utils import timezone
 import atexit
 from background_task.models import Task
 
-@background(schedule=timedelta(seconds=50))
+@background(schedule=timedelta(seconds=70))
 def generate_profit_loss():
     users = User.objects.all()
     print(users.count())

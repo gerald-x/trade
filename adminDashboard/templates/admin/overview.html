@@ -74,7 +74,7 @@
                         const tbody = document.querySelector('tbody');
                         const htmlRows = data.map((row, index) => {
                             const mainObject = row[0];
-                            console.log(mainObject);
+                            console.log(mainObject, row);
                             if (mainObject.hasOwnProperty("current_value")) {
                                 console.log(mainObject.user__first_name)
                                 return ` 
@@ -83,7 +83,7 @@
                             <td>${mainObject?.user__first_name}</td>
                             <td>${mainObject?.user__last_name}</td>
                             <td>${mainObject?.user__email}</td>
-                            <td>${Intl.DateTimeFormat('en-US', {
+                            <td class="date">${Intl.DateTimeFormat('en-US', {
                                 month: 'long',
                                 day: 'numeric',
                                 year: 'numeric',
@@ -109,7 +109,7 @@
                             <td>${mainObject?.first_name}</td>
                             <td>${mainObject?.last_name}</td>
                             <td>${mainObject?.email}</td>
-                            <td>${new Intl.DateTimeFormat('en-US', {
+                            <td class="date">${new Intl.DateTimeFormat('en-US', {
                                 month: 'long',
                                 day: 'numeric',
                                 year: 'numeric',
