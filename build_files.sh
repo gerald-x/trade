@@ -11,6 +11,6 @@ python3 manage.py migrate
 echo "Collecting static files..."
 python3 manage.py collectstatic
 
-echo "Starting background processes..."
-python3 manage.py process_tasks
+echo "Starting background tasks..."
+./start_background_tasks.sh
 
