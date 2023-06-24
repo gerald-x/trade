@@ -1,0 +1,1 @@
+web gunicorm trade.wsgi.:application --log-file -

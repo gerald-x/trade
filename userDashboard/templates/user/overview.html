@@ -1,0 +1,34 @@
+{% extends 'user/layout.html' %} 
+{% load static %}
+{% block title %} Dashboard {% endblock title %}
+{% block scripts %}
+    <!--<script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script> --> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js" integrity="sha256-eVNjHw5UeU0jUqPPpZHAkU1z4U+QFBBY488WvueTm88=" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js" integrity="sha256-UDxwmAK+KFxnav4Dab9fcgZtCwwjkpGIwxWPNcAyepw=" crossorigin="anonymous"></script>
+    <script defer type="module" src={% static 'user/js/chart.js' %}></script>
+{% endblock scripts %}
+
+{% block overviewLink %}active{% endblock overviewLink %}
+
+
+{% block content %}
+    <h2 class="text-center mt-5 mt-lg-2">
+        Welcome {{user.first_name}} {{user.last_name}}
+    </h2>
+    <p class="text-center">Logged into account as {{user.email}}</p>
+    <p class="text-center mt-3 mb-4 text-info fw-bolder">Zoom chart in to preview.</p>
+
+    <!--Container for input row-->
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+        <h5 class="mt-5" id="balance">
+                
+        </h5>
+    </div>
+    <!--End input row container-->
+{% endblock content %}
