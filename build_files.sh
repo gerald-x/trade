@@ -1,5 +1,5 @@
 echo "Installing Dependencies..."
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 echo "Making migrations..."
 python3 manage.py makemigrations userDashboard
@@ -10,5 +10,5 @@ echo "Collecting static files..."
 python3 manage.py collectstatic
 
 echo "Starting background processes..."
-python3 manage.py background_tasks
+python3 manage.py process_tasks
 
