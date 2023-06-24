@@ -4,6 +4,7 @@ pip3 install -r requirements.txt
 echo "Making migrations..."
 python3 manage.py makemigrations userDashboard
 python3 manage.py makemigrations adminDashboard
+python3 manage.py migrate background_task
 python3 manage.py migrate
 
 echo "Collecting static files..."
