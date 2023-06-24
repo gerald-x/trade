@@ -6,7 +6,6 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.hashers import check_password
 from .models import User
 from django.shortcuts import redirect
-from trade.tasks import generate_profit_loss
 from django.core import serializers
 from .models import Records, User
 from django.http import JsonResponse
