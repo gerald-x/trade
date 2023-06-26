@@ -19,7 +19,6 @@ def generate_profit_loss():
         profit_loss = round(random.uniform(-10, 10), 2)
         all_records = Records.objects.filter(user=user).order_by('-time')
         current_record = all_records.first()
-        prev_record = all_records[1]
 
         if not current_record:
             record = Records(
