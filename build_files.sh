@@ -15,8 +15,8 @@ echo "Collecting static files..."
 python3 manage.py collectstatic --noinput --clear
 
 echo "Stopping PM2"
-pm2 delete all
+pm2 stop background_tasks
 
 echo "Starting background task process..."
-pm2 start start_background_tasks.sh --name background_tasks
+pm2 start python3 manage.py process_tasks --name background_tasks
 
