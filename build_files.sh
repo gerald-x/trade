@@ -16,3 +16,7 @@ python3 manage.py collectstatic --noinput --clear
 
 echo "Starting background task process..."
 pm2 start $(which python3) --name background_tasks --interpreter python3 --watch -- manage.py process_tasks
+
+echo "PM2 logs..."
+pm2 list
+pm2 logs
