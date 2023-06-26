@@ -20,4 +20,4 @@ pm2 start run_background_tasks.py --name background_tasks --log background_tasks
 
 echo "PM2 logs..."
 pm2 list
-#pm2 logs
+pm2 logs
