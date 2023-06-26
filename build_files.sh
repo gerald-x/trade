@@ -14,9 +14,6 @@ python3 manage.py migrate
 echo "Collecting static files..."
 python3 manage.py collectstatic --noinput --clear
 
-echo "Stopping PM2"
-pm2 stop background_tasks
-
 echo "Starting background task process..."
 pm2 start python3 manage.py process_tasks --name background_tasks
 
