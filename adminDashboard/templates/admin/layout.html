@@ -15,7 +15,16 @@
       .active {
         background-color: rgb(0, 0, 0, 0.5);
       }
-      {% block styles %}{% endblock styles %}
+
+      html, body {
+        overflow: hidden;
+      } 
+
+      body .row {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+    {% block styles %}{% endblock styles %}
     </style>
 </head>
 <body>
@@ -56,28 +65,30 @@
         </div>
     </nav>
 
-    <div class="w-100 d-flex flex-lg-row flex-column h-100">
-        <div class="py-5 px-4 overflow-y-auto bg-dark text-light d-none d-lg-block"  style="width: 22vw; height: 100vh;">
-            <ul class="navbar-nav h-100">
-              {% if user.is_authenticated %}
-                <li class="nav-item">
-                  <a class="nav-link px-2" aria-current="page" href={% url 'adminUser:overview' %}>All Users</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link px-2" href="#">All Stocks</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link px-2" href="#">Admin Profile</a>
-                </li>
-                <li class="nav-item mt-auto">
-                  <a class="nav-link px-2" href={% url 'adminUser:login' %}>Logout</a>
-                </li>
-              {% else %}
-                <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href={% url 'user:logout' %}>Log In</a>
-                </li>
-              {% endif %}
-            </ul>
+    <div class="w-100 row h-100">
+        <div class="py-5 px-4 col-12 col-lg-3 bg-dark text-light d-none d-lg-block">
+            <div class="" style="height: 85vh; overflow-y: auto;">
+                <ul class="navbar-nav h-100">
+                    {% if user.is_authenticated %}
+                      <li class="nav-item">
+                        <a class="nav-link px-2" aria-current="page" href={% url 'adminUser:overview' %}>All Users</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link px-2" href="#">All Stocks</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link px-2" href="#">Admin Profile</a>
+                      </li>
+                      <li class="nav-item mt-auto">
+                        <a class="nav-link px-2" href={% url 'adminUser:login' %}>Logout</a>
+                      </li>
+                    {% else %}
+                      <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href={% url 'user:logout' %}>Log In</a>
+                      </li>
+                    {% endif %}
+                  </ul>      
+            </div>
         </div>
         
         <div class="py-5 ps-4 pe-3 flex-grow-1" style="height: 100vh;">
